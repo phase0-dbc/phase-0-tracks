@@ -6,7 +6,7 @@
   # otherwise have designer enter the key and new value
     # convert value to appropriate data type 
     # update hash  
-# Print the latest version of the hash, and exit the program.
+# Print the latest version of the hash
 
 
 class Client
