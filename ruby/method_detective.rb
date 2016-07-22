@@ -7,14 +7,18 @@
 # "iNvEsTiGaTiOn".<???>
 # => “InVeStIgAtIoN”
 
-# "zom".<???>
+#squeeze = "zom".
 # => “zoom”
+#p squeeze
 
 # "enhance".<???>
 # => "    enhance    "
 
-# "Stop! You’re under arrest!".<???>
+dangerous_upcase = "Stop! You’re under arrest!".upcase!
+safe_upcase = "Stop! You’re under arrest!".upcase
 # => "STOP! YOU’RE UNDER ARREST!"
+p dangerous_upcase
+p safe_upcase
 
 # "the usual".<???>
 #=> "the usual suspects"
@@ -22,8 +26,9 @@
 # " suspects".<???>
 # => "the usual suspects"
 
-# "The case of the disappearing last letter".<???>
+chop = "The case of the disappearing last letter".chop
 # => "The case of the disappearing last lette"
+p chop 
 
 # "The mystery of the missing first letter".<???>
 # => "he mystery of the missing first letter"
@@ -31,9 +36,14 @@
 # "Elementary,    my   dear        Watson!".<???>
 # => "Elementary, my dear Watson!"
 
-# "z".<???>
+ord = "z".ord
 # => 122 
 # (What is the significance of the number 122 in relation to the character z?)
+p ord
 
-# "How many times does the letter 'a' appear in this string?".<???>
+count = "How many times does the letter 'a' appear in this string?".count("a")
 # => 4
+p count
+
+
+
