@@ -47,3 +47,22 @@
     @alias = @alias.join(' ')
     @alias
   end
+
+  def get_names
+    loop do
+      puts "Enter your first and last name - type 'quit' to quit."
+      @name = gets.chomp
+      if @name == "quit" || @name.empty?
+          return print_names
+      else
+        alias_generater
+        @names[@alias] = @name
+      end
+    end
+    print_names
+  end
+
+
+
+
+
