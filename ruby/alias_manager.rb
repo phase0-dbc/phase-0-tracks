@@ -62,7 +62,10 @@
     print_names
   end
 
-
-
+  def print_names
+    @names.each {|fake, real| puts "#{fake} is actually #{real}"}
+  end
+  
+get_names
 
 
