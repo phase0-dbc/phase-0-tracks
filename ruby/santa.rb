@@ -1,5 +1,8 @@
 class Santa
 
+  attr_reader :age, :ethnicity
+  attr_accessor :gender
+
   def initialize(gender, ethnicity)
     @gender = gender
     @ethnicity = ethnicity
@@ -16,6 +19,14 @@ class Santa
     "That was a good #{cookie_type}"
   end
 
+  def celebrate_birthday
+    @age += 1
+  end
+
+  def get_mad_at(reindeer)
+    @reindeer_ranking << @reindeer_ranking.delete(reindeer)
+  end
+ 
 end
 
 # santa1 = Santa.new
@@ -32,4 +43,14 @@ genders.each_index do |i|
   puts santas[i].eat_milk_and_cookies("chocolate chip cookie")
 end
 
-p santas
+# p santas
+
+santas[0].celebrate_birthday
+santas[0].get_mad_at("Dasher")
+p santas[0].age
+p santas[0].ethnicity
+santas[0].gender = "male"
+
+p santas[0]
+
+
