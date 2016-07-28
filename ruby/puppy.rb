@@ -6,7 +6,7 @@
 #DOB: varies
 #Color: varies
 #Cute: true
-#Sibling count:
+#Sibling count: varies
 
 #BEHAVIOR ------------
 #Kiss
