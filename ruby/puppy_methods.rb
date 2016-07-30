@@ -1,31 +1,31 @@
-# class Puppy
+class Puppy
 
-#   def initialize
-#     puts "Initializing new puppy instance ..."
-#   end
+  def initialize
+    puts "Initializing new puppy instance ..."
+  end
 
-#   def fetch(toy)
-#     puts "I brought back the #{toy}!"
-#     toy
-#   end
+  def fetch(toy)
+    puts "I brought back the #{toy}!"
+    toy
+  end
 
-#   def speak(num)
-#     num.times {|i| puts "Woof!"}
-#   end
+  def speak(num)
+    num.times {|i| puts "Woof!"}
+  end
 
-#   def roll_over
-#     puts "*rolls over*"
-#   end
+  def roll_over
+    puts "*rolls over*"
+  end
 
-#   def dog_years(num_human_years)
-#     age = num_human_years * 7
-#   end
+  def dog_years(num_human_years)
+    age = num_human_years * 7
+  end
 
-#   def jump(item)
-#     puts "*jumps over #{item}*"
-#   end
+  def jump(item)
+    puts "*jumps over #{item}*"
+  end
 
-# end
+end
 
 # venus = Puppy.new
 # venus.fetch("ball")
@@ -63,8 +63,3 @@ violinist_ary.each do |violinist|
   violinist.perform(composers.sample)
   violinist.years_playing(rand(30) + 1)
 end
-
-
-
-
-
