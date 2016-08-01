@@ -21,7 +21,7 @@ class Guess_word
 def initialize(word)
   @word = word
   @num_guesses = word.length
-  @guesses = ""
+  @guessed = []
   @past_guesses = []
 end 
 
@@ -30,8 +30,7 @@ end
   #variable guessed will be length - 1 times '_ ' + '_'
 def makes_secret
   length = @word.length
-  s = '_ '
-  @guessed = s * (length - 1) + '_'
+  @guessed = @guessed.push('_') * length
 end
 
 #method passed_guesses(guess)
@@ -42,6 +41,16 @@ end
     #new_guess equals false
     #tell the user the already guessed that letter
   #return new_guess
+def passed_guesses(guess)
+  new_guess = true
+  if !@past_guesses.include?(guess)
+    @past_guesses << guess
+  else
+    new_guess = false
+    puts "You already guessed the letter #{guess}."
+  end
+  new_guess
+end
 
 #method is_correct?(guess)
   #set variable new_guess to true
@@ -49,12 +58,32 @@ end
     #new_guess equals false
     #tell user their guess is wrong
   #return new_guess
+def is_correct?(guess)
+  new_guess = true
+  if !@word.include?(guess)
+    new_guess = false
+    puts "Nope! Guess again."
+  end
+  new_guess
+end
 
   #method current_guess(guess)
   #if is_correct and passed_guesses methods return true 
     #find index and insert letter at same index in guessed variable
     #num_guesses -= 1
   #end
+def current_guess(guess)
+  if is_correct?(guess) && passed_guesses(guess)
+    @word.chars.each_with_index do |let, i| 
+      if let == guess
+        @guessed[i] = let
+        @num_guesses -= 1
+      end
+    end
+  end
+  @guessed
+end
+
 end 
 # USER INTERFACE
 
@@ -62,6 +91,10 @@ end
     #tell the user awesome you win!
   #end
   #if num_guesses == 0
+
+guess = Guess_word.new('hello')
+# guess.makes_secret
+p guess.current_guess('l')
 
 
 
