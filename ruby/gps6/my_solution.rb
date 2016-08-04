@@ -1,11 +1,11 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge [by myself].
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# Both require and require_relatie allow you to load a file into another file but you use/can 
+# only use require_relative if the file you're loading is relative to the file you're loading into.
 require_relative 'state_data'
 
 class VirusPredictor
@@ -16,13 +16,16 @@ class VirusPredictor
     @population_density = population_density
   end
 
+  # calls instance methods predicted_deaths and speed_of_spread.
+  # Returns what the last method called returns which will be nil (puts returns nil)
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
   end
 
   private
-
+  # predicts number of deaths from outbreak based on the populations density.
+  # Method will return nil because print returns nil
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
@@ -40,7 +43,8 @@ class VirusPredictor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
-
+  # determines how fast the virus will spread across the state currently based on the population's density.
+  # Method will return nil because puts returns nil.
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
