@@ -28,42 +28,33 @@ class VirusPredictor
   # Method will return nil because print returns nil
   def predicted_deaths
     # predicted deaths is solely based on population density
-    if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
-    elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
-    elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
-    elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
-    else
-      number_of_deaths = (@population * 0.05).floor
+    density = 200
+    multiplier = 0.4
+    until @population_density >= density
+      if @population_density < 50
+        return print "#{@state} will lose #{(@population * 0.05).floor} people in this outbreak"
+      end
+      density -= 50
+      multiplier -= 0.1
     end
-
+    number_of_deaths = (@population * multiplier).floor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
+
   # determines how fast the virus will spread across the state currently based on the population's density.
   # Method will return nil because puts returns nil.
   def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
-    speed = 0.0
-
-    if @population_density >= 200
+    density = 200
+    speed = 0.5
+    until @population_density >= density
+      density -= 50
       speed += 0.5
-    elsif @population_density >= 150
-      speed += 1
-    elsif @population_density >= 100
-      speed += 1.5
-    elsif @population_density >= 50
-      speed += 2
-    else
-      speed += 2.5
     end
-
     puts " and will spread across the state in #{speed} months.\n\n"
-
+  
   end
 
 end
@@ -94,3 +85,12 @@ end
 
 #=======================================================================
 # Reflection Section
+#
+# in the outer hash the keys are strings but in the nested hash the keys are symbols 
+# written with the colon after the word (this is syntactic sugar for keys in hashes)
+#
+# you can iterate through a hash using any enumerable methods for example the .each method
+#
+# this GPS really emphasized how instance variables are accessible from anywhere inside the class 
+#
+# I always feel like I learn when I try to refactor methods 
